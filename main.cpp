@@ -8,6 +8,7 @@
 #include <numeric>
 #include "seccardsystutils.h"
 
+
 //States in the state machine
 enum SysSt {
   START,
@@ -390,6 +391,12 @@ SysSt CheckState(SysSt currentState)
         int userID, userSel;
         std::string line, userIdStr, userSelStr;
         std::ifstream file("User.csv");
+        
+        if (!file) 
+        {
+            std::cout << "Error opening file - program terminated" << std::endl;
+            exit(0); // Ends the program immediately
+        }
 
         while (std::getline(file, line))
         {

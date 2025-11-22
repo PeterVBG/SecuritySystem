@@ -1,3 +1,15 @@
+**Information**
+
+Here is my implementation of the scecurity card system. It is coded in a traditional way , a state machine where the states are represented by enumerations. The state machine is called from an etertal loop inside the main function. The idea is that "we" are in a state and checking wheather we shall transit to another state.
+In each state there are specific functionality and it is implemented as funtions.
+
+There is a big room for improvement of the code but it does what it should.
+Future improvements:
+- Use more references and/or pointers
+- Make the functions more modular (combine functions, create more but smaller functions etc)
+- Reduce the code in the state machine, put it as functions instead
+- Make fault handing better, now the program is terminated if input isn't correct or if files are not possible to open etc. 
+
 **Requirements**
 
 1. Program submitted via Github

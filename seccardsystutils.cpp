@@ -154,6 +154,11 @@ int showLoginPersInfo(int _emplId)
     std::ifstream file("User.csv"); 
     bool found = false;   
     int commaLoc, iD, showNormUserSel, userCardNbr, cardNbrInFile;
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     std::getline(file, line); //First line contains headings
     while (found == false && std::getline(file, line))
     {
@@ -188,6 +193,11 @@ int showLoginPersInfo(int _emplId)
     //Read clearance level from Card.csv
     bool found1 = false;
     std::ifstream file1("Card.csv");
+    if (!file1) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     userCardNbr = stoi(userCardNbrStr);
     std::getline(file1, line); //First line contains headings 
     while (!found1 && std::getline(file1, line))
@@ -252,11 +262,13 @@ int ChangePersInfo(int _emplId)
     std::ofstream tempFile("Temp.csv"); //write data to this temporay file that in the end shall replace User.csv
     if (!file) 
     {
-        std::cout << "Error opening file" << std::endl;
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
     }
     if (!tempFile) 
     {
-        std::cout << "Error opening tempFile" << std::endl;
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
     }
 
     std::getline(file, line); //First line contains headings
@@ -310,26 +322,6 @@ int ChangePersInfo(int _emplId)
 
 }
 
-/* From copilot
-bool isInteger(const std::string& input) {
-    std::stringstream ss(input);
-    int value;
-    char leftover;
-
-    // Try to parse an integer and check for leftover characters
-    return (ss >> value) && !(ss >> leftover);
-}*/
-
-// Check if a string is a valid integer
-bool isNumber(const std::string& str) 
-{
-    if (str.empty()) return false;
-    for (char c : str) {
-        if (!std::isdigit(c)) return false;
-    }
-    return true;
-}
-
 //Function finds ID (int) related to name (string)
 int IdName(std::string inpStr)
 {
@@ -337,7 +329,11 @@ int IdName(std::string inpStr)
     std::ifstream file("User.csv"); 
     bool found = false;   
     int commaLoc, iD;
-
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     std::getline(file, line); //First line contains headings
 
     while (found == false && std::getline(file, line))
@@ -372,7 +368,11 @@ int ShowAvailFloors(int _emplId)
     bool found = false;   
     int commaLoc, iD, userCardNbr, cardNbrInFile, userSel;
     enum ClLvlEnum clLvlU, clLvlF;
-
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     std::getline(file, line); //First line contains headings
     while (found == false && std::getline(file, line))
     {
@@ -414,6 +414,11 @@ int ShowAvailFloors(int _emplId)
     //userCardNbr = stoi(userCardNbrStr);
     bool found1 = false;
     std::ifstream file1("Card.csv");
+    if (!file1) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     std::getline(file1, line); //First line contains headings 
     //std::cout << line << std::endl;
     //std::getline(file1, line); //Why do I need this line?
@@ -443,6 +448,11 @@ int ShowAvailFloors(int _emplId)
     //Now Clearance level for the user (clLvlUser) is found: clLvlU is INTERNAL, RESTRICTED or SECRET
 
     std::ifstream file2("Floor.csv");
+    if (!file2) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     std::getline(file2, line); //First line contains headings
 
     //3 floors building. Hard coded.
@@ -527,6 +537,11 @@ int ShowAvailFloors(int _emplId)
                 int inpInt;
                 std::cout << "Type the number (1, 2 or 3) on the floor you like to enter or 0 to exit" << std::endl;
                 //SÄKERTHET - INGEN CHECK PÅ ATT MAN BARA KAN GÅ IN I VÅNINGAR MAN HAR ACCESS TILL
+                if (!file3) 
+                {
+                    std::cout << "Error opening file - program terminated" << std::endl;
+                    exit(0); // Ends the program immediately
+                }
                 std::getline(std::cin, inp);
                 bool inputOk = user0123InputOk(inp); //Input was 0, 1, 2 or 3
                 if (inputOk)
@@ -580,12 +595,6 @@ int ShowAvailFloors(int _emplId)
   
 }
 
-//Admin user inputs admin-ID and a password
-void AdminLogin(int _iD, int _passWd)
-{
-    //
-}
-
 //Check if an integer is an ID in User.csv. 
 bool IDIsInFile(int id)
 {
@@ -594,6 +603,11 @@ bool IDIsInFile(int id)
     std::ifstream file("User.csv"); 
     bool found = false;   
     int commaLoc, iDFile;
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     std::getline(file, line); //First line contains headings
     while (found == false && std::getline(file, line))
     {
@@ -618,7 +632,11 @@ bool CardNbrIsInFile(int _cardNbr)
     std::ifstream file("Card.csv"); 
     bool found = false;   
     int commaLoc, cardNbr;
-
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     std::getline(file, line); //First line contains headings
     while (found == false && std::getline(file, line))
     {
@@ -644,7 +662,11 @@ bool nameIsInFile(std::string inpName)
     std::ifstream file("User.csv"); 
     bool found = false;   
     int commaLoc;
-
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     std::getline(file, line); //First line contains headings
 
     while (found == false && std::getline(file, line))
@@ -672,6 +694,11 @@ int ShowAccHistFloor(int floor)
     std::string line, name, time;
     int commaLoc;
     std::ifstream file("FloorAccessHistory.csv");
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
     std::getline(file, line); //Heading
     std::cout << "Access history for floor " << floor << " is:" << std::endl;
     if (floor == 1)
@@ -749,11 +776,13 @@ int ChngFloorData(int floor)
     std::ofstream tempFile("Temp1.csv"); //write data to this temporay file that in the end shall replace Floor.csv
     if (!file) 
     {
-        std::cout << "Error opening file" << std::endl;
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
     }
     if (!tempFile) 
     {
-        std::cout << "Error opening tempFile" << std::endl;
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
     }    
 
     std::getline(file, line); //First line contains headings
@@ -911,6 +940,22 @@ void DeleteUserAndCard(int user)
     bool found = false;   
     int commaLoc, iD;
 
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
+    if (!file1) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
+    if (!tempFile) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
+
     std::getline(file, line); //First line contains headings
     while (found == false && std::getline(file, line))
     {
@@ -968,6 +1013,18 @@ void DeleteUserAndCard(int user)
     std::ifstream file3("User.csv");
     std::ofstream tempFile3("Temp3.csv");
     std::string ID;
+
+    if (!file3) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
+    if (!tempFile3) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
+
     tempFile3 << "Id,Name,Email,Phone number,Card number" << std::endl; //write heading
     std::getline(file3, line); //heading
     while (std::getline(file3, line))
@@ -1057,6 +1114,18 @@ int CreateNewUser()
     {
         std::ofstream file("User.csv", std::ios::app);
         std::ofstream file1("Card.csv", std::ios::app);
+
+        if (!file) 
+        {
+            std::cout << "Error opening file - program terminated" << std::endl;
+            exit(0); // Ends the program immediately
+        }
+        if (!file1) 
+        {
+            std::cout << "Error opening file - program terminated" << std::endl;
+            exit(0); // Ends the program immediately
+        }
+
         lineNewUser = newUserIdStr + "," + newUserNameStr + "," + newUserEmailStr + "," + newUserPhNbrStr + "," + newUserCardNbrStr;
         file << lineNewUser << std::endl;
         lineNewCard = newUserCardNbrStr + "," + newUserClLvlStr;
@@ -1077,6 +1146,13 @@ bool ValidateAdminID(std::string adminIdStr)
     std::ifstream file("Admin.csv"); 
     bool found = false;   
     int commaLoc, iDFile, id;
+
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
+
     std::getline(file, line); //First line contains headings
     while (found == false && std::getline(file, line))
     {
@@ -1146,6 +1222,12 @@ bool CheckMatchPassWd(std::string adminPasswd, std::string adminIdStr)
     int commaLoc, iD;
 
     std::ifstream file("Admin.csv"); //Original data
+
+    if (!file) 
+    {
+        std::cout << "Error opening file - program terminated" << std::endl;
+        exit(0); // Ends the program immediately
+    }
 
     //Leta upp ID i filen
     std::getline(file, line); //First line contains headings
