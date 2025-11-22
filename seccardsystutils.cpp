@@ -1,4 +1,3 @@
-//Peter
 #include <iostream>
 #include <ostream>
 #include <fstream>
@@ -163,8 +162,6 @@ int showLoginPersInfo(int _emplId)
     std::getline(file, line); //First line contains headings
     while (found == false && std::getline(file, line))
     {
-        //std::cout << line << std::endl;
-        //std::getline(file, line); //Read next line from stream file and save in string line
         commaLoc = line.find(','); //Find location of first comma
         iDStr = line.substr(0, commaLoc); //iDStr is string
         line = line.substr(commaLoc + 1, line.length()); //removes ID from string line
@@ -203,7 +200,6 @@ int showLoginPersInfo(int _emplId)
     std::getline(file1, line); //First line contains headings 
     while (!found1 && std::getline(file1, line))
     {
-        //std::getline(file1, line);
         commaLoc = line.find(',');
         cardNbrInFileStr = line.substr(0, commaLoc);
         line = line.substr(commaLoc + 1, line.length());
@@ -339,7 +335,6 @@ int IdName(std::string inpStr)
 
     while (found == false && std::getline(file, line))
     {
-        //std::getline(file, line); //Read next line from stream file and save in string line
         commaLoc = line.find(','); //Find location of first comma
         iDStr = line.substr(0, commaLoc); //iDStr is string
         line = line.substr(commaLoc + 1, line.length()); //removes ID from string line
@@ -377,7 +372,6 @@ int ShowAvailFloors(int _emplId)
     std::getline(file, line); //First line contains headings
     while (found == false && std::getline(file, line))
     {
-        //std::getline(file, line); //Read next line from stream file and save in string line
         commaLoc = line.find(','); //Find location of first comma
         iDStr = line.substr(0, commaLoc); //iDStr is string
         line = line.substr(commaLoc + 1, line.length()); //removes ID from string line
@@ -398,13 +392,7 @@ int ShowAvailFloors(int _emplId)
 
             commaLoc = line.find(',');
             userCardNbrStr = line.substr(0, commaLoc);
-            //line = line.substr(commaLoc + 1, line.length());
-            //commaLoc = line.find(',');
-            //clLvlUser = line.substr(0, commaLoc);
-            //change to enum for easier comparison
-            //if (clLvlUser == "SECRET"){clLvlU = SECRET;}
-            //else if (clLvlUser == "RESTRICTED"){clLvlU = RESTRICTED;}
-            //else {clLvlU = INTERNAL;} //lowest level in else statement, security
+
             found = true;
         }
     }
@@ -412,7 +400,6 @@ int ShowAvailFloors(int _emplId)
 
     //Vi vet nu användarens kortnummer (userCardNbrStr). Nu vill vi öppna Card.csv. Leta upp raden med userCardNbrStr, sen extrahera clearancelevel. Detta blir clLvlUser
     
-    //userCardNbr = stoi(userCardNbrStr);
     bool found1 = false;
     std::ifstream file1("Card.csv");
     if (!file1) 
@@ -458,7 +445,7 @@ int ShowAvailFloors(int _emplId)
 
     //3 floors building. Hard coded.
     int availFloor[3] = {0, 0, 0};
-    for (int i = 1; i < 4; i++)
+    for (int i = 0; i < 3; i++)
     {
         std::getline(file2, line);
         commaLoc = line.find(','); //Find location of first comma

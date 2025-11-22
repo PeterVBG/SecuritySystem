@@ -1,4 +1,3 @@
-//Peter
 #include <iostream>
 #include <ostream>
 #include <fstream>
@@ -125,29 +124,7 @@ SysSt CheckState(SysSt currentState)
         std::getline(std::cin, adminPasswd);  
 
         iDOk = ValidateAdminID(adminIdStr);     
-        /*if (!iDOk)
-        {
-            //ID doesn't exist in Admin.csv
-            std::cout << "ID not correct - program terminated" << std::endl;
-            //currentState = END;
-        }
-        else
-        {
-            std::cout << "ID correct" << std::endl;
-        }*/
-
         passWdOk = ValidatePassWd(adminPasswd);
-        /*if (!passWdOk)
-        {
-            //Password doesn not fullfill requirements
-            std::cout << "Password not correct - program terminated" << std::endl;
-            currentState = END;
-        }  
-        else
-        {
-            std::cout << "Password fulfills requirements" << std::endl;
-        }*/ 
-
         match = CheckMatchPassWd(adminPasswd, adminIdStr);
 
         //If ID input doesn't exist, or password does not fulfill req or password is not the correct one 
