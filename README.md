@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 **Information**
 
 Here is my implementation of the scecurity card system. It is coded in a traditional way , a state machine where the states are represented by enumerations. The state machine is called from an etertal loop inside the main function. The idea is that "we" are in a state and checking wheather we shall transit to another state.
@@ -10,6 +9,8 @@ Future improvements:
 - Make the functions more modular (combine functions, create more but smaller functions etc)
 - Reduce the code in the state machine, put it as functions instead
 - Make fault handing better, now the program is terminated if input isn't correct or if files are not possible to open etc. 
+
+I decided to do it in a traditional way since I work with application SW for embedded systems and we code usually in a C stylish way. 
 
 **Requirements**
 
@@ -63,11 +64,13 @@ Logging data saved in FloorAccessHistory.csv
 
 **General information about the assignment**
 
-- checks that the user inputs only valid characters. If not, the program is usually terminated.
+- checks that the user inputs only valid characters. If not, the program is terminated.
 
-- Implementation done in a very traditional way with functions
+- checks that files are open before working with them. If not, the program is terminated.
 
-- Code could of cause be improved and reduced 
+- Implementation done in a very traditional way with functions.
+
+- Code could of cause be improved and reduced. 
 
 **csv files**
 
@@ -75,7 +78,7 @@ User.scv: user info, ID (unique), name (only first name), email, phone number an
 Admin.csv: similar to User.csv but contains password as well. Each admin has unique ID/Password
 Card.csv: card number and clearance level. Clearance level tied to a specific user via card number
 Floor.csv: floor, name and clearance level
-FloorAccesHistory.csv: User access history, name and when they entered the floor
+FloorAccesHistory.csv: User access history, used ID and time when they entered the floor
 Temp1.csv: only used during program execution
 
 
@@ -107,8 +110,3 @@ Good use of STL
 The student can articulate and justify their design and implementation decisions, showing an understanding of advanced C++ concepts and system design principles.
 
 SecureCardSystem Requirement Specification.pdf (see files in Git)
-=======
-Add information about the system here:
-
-...
->>>>>>> 261578e7c5abe4dd3b3a895fb10061da94a7be6f
