@@ -1,3 +1,4 @@
+//Peter
 #include <iostream>
 #include <ostream>
 #include <fstream>
@@ -391,7 +392,7 @@ SysSt CheckState(SysSt currentState)
         int userID, userSel;
         std::string line, userIdStr, userSelStr;
         std::ifstream file("User.csv");
-        
+
         if (!file) 
         {
             std::cout << "Error opening file - program terminated" << std::endl;

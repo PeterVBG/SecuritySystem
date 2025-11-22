@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 **Information**
 
 Here is my implementation of the scecurity card system. It is coded in a traditional way , a state machine where the states are represented by enumerations. The state machine is called from an etertal loop inside the main function. The idea is that "we" are in a state and checking wheather we shall transit to another state.
@@ -106,3 +107,8 @@ Good use of STL
 The student can articulate and justify their design and implementation decisions, showing an understanding of advanced C++ concepts and system design principles.
 
 SecureCardSystem Requirement Specification.pdf (see files in Git)
+=======
+Add information about the system here:
+
+...
+>>>>>>> 261578e7c5abe4dd3b3a895fb10061da94a7be6f

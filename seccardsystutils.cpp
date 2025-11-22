@@ -1,3 +1,4 @@
+//Peter
 #include <iostream>
 #include <ostream>
 #include <fstream>
@@ -552,27 +553,27 @@ int ShowAvailFloors(int _emplId)
                     if (inpInt == 1)
                     {
                         //Access floor 1
-                        line = userName + ",,," + ctime(&timestamp);
+                        line = iDStr + ",,," + ctime(&timestamp);
                         file3 << line << std::endl; 
-                        std::cout << "You entered floor 1. Press any key to go back" << std::endl;
+                        std::cout << "You entered floor 1 at " << ctime(&timestamp) << " Press any key to go back" << std::endl;
                         std::getline(std::cin, inpX);
                         return 1;
                     }
                     else if (inpInt == 2)
                     {
                         //Access floor 2
-                        line = "," + userName + ",," + ctime(&timestamp);
+                        line = "," + iDStr + ",," + ctime(&timestamp);
                         file3 << line << std::endl;
-                        std::cout << "You entered floor 2. Press any key to go back" << std::endl;
+                        std::cout << "You entered floor 2 at " << ctime(&timestamp) << " Press any key to go back" << std::endl;
                         std::getline(std::cin, inpX);
                         return 1;
                     }
                     else if (inpInt == 3)
                     {
                         //Access floor 3
-                        line = ",," + userName + "," + ctime(&timestamp);
+                        line = ",," + iDStr + "," + ctime(&timestamp);
                         file3 << line << std::endl; 
-                        std::cout << "You entered floor 3. Press any key to go back" << std::endl;
+                        std::cout << "You entered floor 3 at " << ctime(&timestamp) << " Press any key to go back" << std::endl;
                         std::getline(std::cin, inpX);
                         return 1;
                     }
