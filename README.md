@@ -14,6 +14,8 @@ I decided to do it in a traditional way since I work with application SW for emb
 
 **State machine**
 
+![image](/StateDiagram.png)
+
 See <img src="\StateDiagram.png"/>
 
 **Requirements**
@@ -86,7 +88,7 @@ FloorAccesHistory.csv: User access history, used ID and time when they entered t
 Temp1.csv: only used during program execution
 
 
-**Assignment descriptiom**
+**Assignment description**
 
 You are tasked with implementing the business logic for a card access system for a government building in C++. The system will allow users and administrators to interact with the system through a console-based interface and handle access based on the floors and employees clearance levels.
 
