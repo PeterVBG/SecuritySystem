@@ -14,9 +14,7 @@ I decided to do it in a traditional way since I work with application SW for emb
 
 **State machine**
 
-![image](/StateDiagram.png)
-
-See <img src="\StateDiagram.png"/>
+<img width="1479" height="928" alt="Image" src="https://github.com/user-attachments/assets/0dc1e998-9a84-45e8-b40c-3c53e66bca46" />
 
 **Requirements**
 
