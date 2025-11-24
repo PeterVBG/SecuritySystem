@@ -12,6 +12,10 @@ Future improvements:
 
 I decided to do it in a traditional way since I work with application SW for embedded systems and we code usually in a C stylish way. 
 
+**State machine**
+
+See <img src="\StateDiagram.png"/>
+
 **Requirements**
 
 1. Program submitted via Github

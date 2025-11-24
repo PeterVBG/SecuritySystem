@@ -784,16 +784,82 @@ int ChngFloorData(int floor)
         chngSel = std::stoi(chngSelStr); //String to integer
         if (chngSel == 1) //change name
         {   
+            std::string floorA, floorB;
             std::cout << "Type new floor name" << std::endl;
-            //control of input, cannot be blank
+            //control of input, cannot be blank and must be unique
+            if (floor == 1)
+            {
+                //Floor 1 cannot have same name as floor 2 or 3
+
+                //Floor2
+                std::getline(file, line);
+                std::getline(file, line); //Floor2
+                commaLoc = line.find(','); //Find location of first comma
+                line = line.substr(commaLoc + 1, line.length());
+                commaLoc = line.find(','); //Find location of second comma
+                floorA = line.substr(0, commaLoc);
+
+                //Floor3
+                std::getline(file, line);
+                std::getline(file, line);
+                std::getline(file, line); //Floor3
+                commaLoc = line.find(','); //Find location of first comma
+                line = line.substr(commaLoc + 1, line.length());
+                commaLoc = line.find(','); //Find location of second comma
+                floorB = line.substr(0, commaLoc);
+            }
+            else if (floor == 2)
+            {
+                //Floor 2 cannot have same name as floor 1 or 3
+
+                //Floor1
+                std::getline(file, line); //Floor1
+                commaLoc = line.find(','); //Find location of first comma
+                line = line.substr(commaLoc + 1, line.length());
+                commaLoc = line.find(','); //Find location of second comma
+                floorA = line.substr(0, commaLoc);
+
+                //Floor3
+                std::getline(file, line);
+                std::getline(file, line);
+                std::getline(file, line); //Floor3
+                commaLoc = line.find(','); //Find location of first comma
+                line = line.substr(commaLoc + 1, line.length());
+                commaLoc = line.find(','); //Find location of second comma
+                floorB = line.substr(0, commaLoc);
+            }
+            else if (floor == 3)
+            {
+                //Floor 3 cannot have same name as floor 1 or 2
+
+                //Floor1
+                std::getline(file, line); //Floor1
+                commaLoc = line.find(','); //Find location of first comma
+                line = line.substr(commaLoc + 1, line.length());
+                commaLoc = line.find(','); //Find location of second comma
+                floorA = line.substr(0, commaLoc);
+
+                //Floor2
+                std::getline(file, line);
+                std::getline(file, line); //Floor2
+                commaLoc = line.find(','); //Find location of first comma
+                line = line.substr(commaLoc + 1, line.length());
+                commaLoc = line.find(','); //Find location of second comma
+                floorB = line.substr(0, commaLoc);
+            }
             std::getline(std::cin, newName);
-            if (newName == "")
+            if (newName == "" || newName == floorA || newName == floorB)
             {
                 //Input not correct
+                file.close();
                 return 0;
             }
             else
             {
+                //Because of file reading above, reset to start of file
+                file.clear(); // Clear EOF flag
+                file.seekg(0); // Move to beginning
+                std::getline(file, line); //First line contains headings
                 if (floor == 1)
                 {
                     std::getline(file, line); //Floor1

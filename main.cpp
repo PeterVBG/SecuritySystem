@@ -348,6 +348,7 @@ SysSt CheckState(SysSt currentState)
                 }
                 else 
                 {
+                    std::cout << "Incorrect input - program terminated" << std::endl;
                     currentState = END;
                     return currentState; //Terminate program due to incorrect input
                 }

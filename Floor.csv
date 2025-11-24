@@ -1,4 +1,4 @@
 ﻿Floor,Name,ClearanceLevelFloor
-1,vaning1,SECRET
-2,vaning2,RESTRICTED
-3,vaning3,INTERNAL
+1,floor1,INTERNAL
+2,floor2,SECRET
+3,floor3,RESTRICTED
