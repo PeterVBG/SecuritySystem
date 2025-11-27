@@ -1,5 +1,4 @@
 Id,Name,Email,Phone number,Card number
-1,Erik,Erik@gn.se,0712345666,1002
 2,Nisse,Nisse@gmail.com,735976852,1004
 3,Jonnyboy,jonnyboy@hotmail.com,722079200,1006
 4,Kristina,Kristina@test.se,722079296,1008
@@ -10,3 +9,4 @@ Id,Name,Email,Phone number,Card number
 101,Beata,beata@hotmail.com,711234567,1000
 7,Pelle,Pelle@mail.com,0712345676,998
 8,Agda,agda@mail.com,0712345678,997
+10000,Henny,henny@mail.com,0712345678,10005
